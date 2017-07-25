@@ -13,17 +13,21 @@ public class Sosu {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		//System.out.print("2 ");
+		System.out.println("素数を表示します");
 		for (int i = 2; i <= 100; i++) {
-			int sum = 0;
+			// 割り切れた回数
+			int divisibleCount = 0;
 			for (int k = 1; k <= Math.sqrt((double) i); k++) {
-				if (i % k == 0)
-					sum++;
+				if (i % k == 0) {
+					divisibleCount++;
+				}
+				if (divisibleCount >= 2) {
+					// 2回以上割れたら素数でない
+					break;
+				}
 			}
-			if (sum == 1) {
+			if (divisibleCount == 1) {
 				System.out.print(i + " ");
-
 			}
 		}
 

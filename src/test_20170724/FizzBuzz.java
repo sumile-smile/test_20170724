@@ -3,8 +3,6 @@
  */
 package test_20170724;
 
-import java.util.Scanner;
-
 /**
  * @author sumire
  *
@@ -15,22 +13,22 @@ public class FizzBuzz {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 Scanner sc = new Scanner(System.in);
-	     String line = sc.nextLine();
-	     int n;
-	     try {
-	    	  n = Integer.parseInt(line);
+		System.out.println("入力された数が3の倍数のときは「Fizz」、5の倍数のときは「Buzz」と表示します");
+		String inputValue = ProgrammingTestUtil.getInputValue(System.in);
+		String output = "";
+		if(ProgrammingTestUtil.checkInputValue(inputValue)){
+			int n = Integer.parseInt(inputValue);
 
-	  		if(n % 3 == 0){
-	  			 System.out.print("Fizz");
-	  		}
-	  		if(n % 5 == 0){
-	  			 System.out.print("Buzz");
-	  		}
-	  		
-	     }catch (NumberFormatException e) {
-			// 数字に変換できなかったらERROR
-	    	 System.out.println("ERROR");
+			if (n % 3 == 0) {
+				output = "Fizz";
+			}
+			if (n % 5 == 0) {
+				output = "Buzz";
+			}
+			if(output.equals("")){
+				output = String.valueOf(output);
+			}
+			System.out.println(output);
 		}
 	}
 }
